@@ -1,0 +1,22 @@
+.back-button  {
+    border: none;
+    background: url("../../../assets/images/back-button.svg") no-repeat top left;
+    padding: 2px 8px;
+    color: #000000;
+    cursor: pointer;
+    font-weight: bold;
+    height: 28px;
+    padding-bottom: 2px;
+    width: 109px
+}
+
+.back-button:hover,:active{
+    border: none;
+}
+
+.back-nav{
+    margin: 10px 0 0 15px;
+}
+.forecast-body{
+    display: flex;
+}

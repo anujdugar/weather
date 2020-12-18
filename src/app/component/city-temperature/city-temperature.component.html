@@ -1,0 +1,53 @@
+<div class="heading">
+    <h2 class="text-center">Weather Forecast</h2>
+</div>
+<div class="container">
+    <div class="d-flex justify-content-center" *ngIf="!dataLoaded">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Fetching Data...</span>
+        </div>
+        <strong>Fetching Data....</strong>
+    </div>
+    <div class="row" *ngIf="dataLoaded">
+        <div class="col-lg-3 mb-4" *ngFor="let  item of cityList; let i=index;">
+            <div class="card" style="max-width: 18rem;">
+                <div class="card-header weather-header">
+                    <p>{{item.name}}, {{item.sys.country}}</p>
+                    <p class="temp-text">{{convertToDegree(item.main.temp)}}&#8451;</p>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+
+                        <label class="text-primary">Sunrise : </label>
+                        <p>
+                            {{item.sys.sunrise | date: "h:mm a"}}
+                        </p>
+
+                    </div>
+                    <div class="row">
+
+                        <label class="text-primary">Sunset : </label>
+                        <p>
+                            {{item.sys.sunset | date: "h:mm a"}}
+                        </p>
+
+                    </div>
+                    <div class="row">
+
+                        <label class="text-primary">Weather : </label>
+                        <p>
+                            {{item.weather[0].description}}
+                        </p>
+
+                    </div>
+                    <div class="row bottom-button">
+                        <button type="button" (click)="goToForecast(item.id)" class="btn btn-success">Check
+                            Forecast</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

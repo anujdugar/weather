@@ -1,0 +1,15 @@
+.text-primary{
+    font-weight: 600;
+}
+.card-body .row p {
+    padding: 0 0 0 7px;
+}
+.bottom-button{
+    margin-bottom: -18px;
+}
+.bottom-button button{
+    width: 100%;
+}
+.temp-text{
+    font-weight: 600;
+}

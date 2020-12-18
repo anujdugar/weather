@@ -1,0 +1,36 @@
+<div class="forecast-body">
+    <div class="row back-nav" (click)="goBack()">
+        <button type="button" class="back-button">Back</button>
+    </div>
+    <div class="container">
+
+        <div class="heading">
+            <h2 class="text-center">Sea Level Forecast For Next 5 days of {{cityname}}</h2>
+        </div>
+        <div class="d-flex justify-content-center" *ngIf="!dataLoaded">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Fetching Data...</span>
+            </div>
+            <strong>Fetching Data....</strong>
+        </div>
+
+        <table class="table" *ngIf="dataLoaded">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Sea Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of forecastArray;  let i=index;">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{item['dt_txt'] | date:'MMMM d, y'}}</td>
+                    <td>{{item['dt_txt'] | date: "h:mm a"}}</td>
+                    <td>{{item['main']['sea_level']}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
