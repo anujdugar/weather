@@ -32,7 +32,7 @@
                         </p>
 
                     </div>
-                    <div class="row">
+                    <div class="row" href="/">
 
                         <label class="text-primary">Weather : </label>
                         <p>
@@ -41,8 +41,10 @@
 
                     </div>
                     <div class="row bottom-button">
-                        <button type="button" (click)="goToForecast(item.id)" class="btn btn-success">Check
-                            Forecast</button>
+                        <!-- <button type="button" (click)="goToForecast(item.id)" class="btn btn-success">Check
+                            Forecast</button> -->
+                            <button type="button" routerLink="/forecast/2643743" class="btn btn-success">Check
+                                Forecast</button>
                     </div>
 
                 </div>

@@ -8,7 +8,7 @@ import { WeatherService } from 'src/app/services/weather.service';
   styleUrls: ['./city-temperature.component.css']
 })
 export class CityTemperatureComponent implements OnInit {
-  cityList: any;
+  cityList: any = [];
   dataLoaded = false;
 
   constructor(private weatherService: WeatherService, private route: Router) { }
@@ -21,7 +21,12 @@ export class CityTemperatureComponent implements OnInit {
     this.dataLoaded = false;
     this.weatherService.fetchCityTemperature().subscribe(res => {
       this.dataLoaded = true;
-      this.cityList = res['list'];
+      if (res && Object.keys(res).length > 0) {
+        this.cityList = res['list'];
+      } else {
+        this.cityList = [];
+      }
+      console.log('CITY LIST : ', this.cityList.length);
     })
 
   }
@@ -30,7 +35,11 @@ export class CityTemperatureComponent implements OnInit {
   }
 
   goToForecast(id) {
+    console.log('FORECAST ID : ', id);
     this.route.navigate(['/forecast', id]);
+    //  window.open('https://www.google.com');
+    //window.location.href="https://www.google.com";
+
   }
 
 

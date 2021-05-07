@@ -5,7 +5,7 @@ import { ForecastComponent } from './component/forecast/forecast.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: 'weather', component: CityTemperatureComponent
   },
@@ -18,4 +18,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
